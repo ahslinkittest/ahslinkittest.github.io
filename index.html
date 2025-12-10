@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Attleboro LinkIt Kiosk</title>
+  <meta charset="utf-8">
+  <link rel="manifest" href="manifest.json">
+  <style>body, html { margin: 0; padding: 0; overflow: hidden; }</style>
+</head>
+<body>
+  <webview src="https://attleboro.linkit.com/student" style="width:100%; height:100vh;" partition="temporary"></webview>
+  <script>
+    // Optional: Force hard reload on load to bypass any residual cache
+    window.addEventListener('load', () => {
+      const iframe = document.querySelector('iframe');
+      iframe.src = iframe.src;  // Triggers reload
+    });
+    // Listen for app close (via kiosk exit) and clear any in-memory data
+    window.addEventListener('beforeunload', () => {
+      localStorage.clear();  // Clears session-only storage if any
+    });
+  </script>
+</body>
+</html>

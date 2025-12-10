@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Student Kiosk App",
+  "version": "1.0",
+  "description": "Kiosk for student portal",
+  "kiosk_enabled": true,
+  "kiosk": {
+    "auto_launch": true
+  },
+  "app": {
+    "background": {
+      "service_worker": "background.js"
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://attleboro.linkit.com/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
