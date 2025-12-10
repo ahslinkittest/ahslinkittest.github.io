@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Attleboro LinkIt Kiosk</title>
+  <title>Student Kiosk</title>
   <meta charset="utf-8">
   <link rel="manifest" href="manifest.json">
   <style>body, html { margin: 0; padding: 0; overflow: hidden; }</style>
 </head>
 <body>
-  <webview src="https://attleboro.linkit.com/student" style="width:100%; height:100vh;" partition="temporary"></webview>
+  <iframe 
+    src="https://attleboro.linkit.com/student" 
+    credentialless 
+    style="border: none; width: 100%; height: 100vh;">
+  </iframe>
+  <script>
+    window.addEventListener('load', () => {
+      const iframe = document.querySelector('iframe');
+      iframe.src = iframe.src;
+    });
+  </script>
 </body>
 </html>
